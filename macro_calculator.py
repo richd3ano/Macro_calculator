@@ -7,26 +7,31 @@ class Food:
         self.fat= fat
 
 egg = Food(70,7,0.6,5)
-'''egg.cal = 70
-egg.protein = 7
-egg.carb = 0.6
-egg.fat = 5'''
+sausage = Food(100,15,10,12)
 
-def daily_stat():
-    print("What have you eaten today?")
-    food_array = list(input())
-    '''cals = 0
+food_choices = {"egg": egg,
+"sausage": sausage}
+
+def daily_stats():
+    cals = 0
     proteins = 0
     carbs = 0
     fats = 0
-    
-    for i in range(len(food_array)):
-        instance = food_array[i]
-        cals += instance.cal
-        proteins += instance.protein
-        carbs += instance.carb
-        fats += instance.carb
 
-    return cals, proteins, carbs, fats'''
-    return print(food_array)
-daily_stat()
+    food_array = []
+    print("What have you eaten? (comma with no spaces)")
+    user_list = input()
+    food_array = [item for item in user_list.split(",")]
+
+    for i in range(len(food_array)):
+        get_food = food_choices.get(food_array[i], None)  # Get the chosen class, or None if input is bad
+        if get_food is None:
+            print("item {} is invalid".format(i+1)) # They entered bad input that doesn't correspond to a food
+        else:
+            cals += get_food.cal
+            proteins += get_food.protein
+            carbs += get_food.carb
+            fats += get_food.fat
+    return print("Calories = {}, Protein = {}, Carbohydrate = {}, Fat = {}".format(cals,proteins,carbs,fats))
+
+daily_stats()
