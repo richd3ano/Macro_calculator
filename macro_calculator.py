@@ -14,6 +14,7 @@ pasta_bake = Food(680,36,60,32)
 dirty_fries = Food(1106,36,86,66)
 banana = Food(110,1,28,0)
 toast = Food(134,4.9,18.2,4.1)
+goal = Food(3200,150,450,100)
 
 food_choices = {"egg": egg,
 "sausage": sausage,
@@ -21,7 +22,8 @@ food_choices = {"egg": egg,
 "pasta bake": pasta_bake,
 "dirty fries": dirty_fries,
 "banana": banana,
-"toast": toast}
+"toast": toast,
+"goal": goal}
 
 def get_stats(cals,proteins,carbs,fats,updates):
 
@@ -42,9 +44,9 @@ def get_stats(cals,proteins,carbs,fats,updates):
             proteins += get_food.protein
             carbs += get_food.carb
             fats += get_food.fat
-            updates += 1
-
+    updates += 1
     print("Calories = {}, Protein = {}, Carbohydrate = {}, Fat = {}".format(cals,proteins,carbs,fats))
+    print("Calories = {}, Protein = {}, Carbohydrate = {}, Fat = {}".format(goal.cal,goal.protein,goal.carb,goal.fat))
     get_stats(cals,proteins,carbs,fats,updates)
     return
 
@@ -55,14 +57,3 @@ carbs = 0
 fats = 0
 
 get_stats(cals,proteins,carbs,fats,updates)
-'''
-def add_food():
-    food_name = input("Food:")
-    macros = input("Input macros:")
-    macro_array = [item for item in macros.split(",")]
-
-    globals()[food_name] = Food(macro_array[0],macro_array[1],macro_array[2],macro_array[3])
-    food_choices[food_name] = food_name
-
-add_food()
-'''
