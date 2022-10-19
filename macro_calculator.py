@@ -23,14 +23,13 @@ food_choices = {"egg": egg,
 "banana": banana,
 "toast": toast}
 
-def daily_stats():
-    cals = 0
-    proteins = 0
-    carbs = 0
-    fats = 0
+def get_stats(cals,proteins,carbs,fats,updates):
 
     food_array = []
-    print("What have you eaten? (comma with no spaces)")
+    if updates == 0:
+        print("What have you eaten? (comma with no spaces)")
+    else:
+        print("Anything else?")
     user_list = input()
     food_array = [item for item in user_list.split(",")]
 
@@ -43,6 +42,27 @@ def daily_stats():
             proteins += get_food.protein
             carbs += get_food.carb
             fats += get_food.fat
-    return print("Calories = {}, Protein = {}, Carbohydrate = {}, Fat = {}".format(cals,proteins,carbs,fats))
+            updates += 1
 
-daily_stats()
+    print("Calories = {}, Protein = {}, Carbohydrate = {}, Fat = {}".format(cals,proteins,carbs,fats))
+    get_stats(cals,proteins,carbs,fats,updates)
+    return
+
+updates = 0
+cals = 0
+proteins = 0
+carbs = 0
+fats = 0
+
+get_stats(cals,proteins,carbs,fats,updates)
+'''
+def add_food():
+    food_name = input("Food:")
+    macros = input("Input macros:")
+    macro_array = [item for item in macros.split(",")]
+
+    globals()[food_name] = Food(macro_array[0],macro_array[1],macro_array[2],macro_array[3])
+    food_choices[food_name] = food_name
+
+add_food()
+'''
