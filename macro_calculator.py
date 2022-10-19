@@ -1,3 +1,4 @@
+
 import numpy as np
 class Food:
     def __init__(self, cal, protein, carb, fat):
@@ -8,9 +9,19 @@ class Food:
 
 egg = Food(70,7,0.6,5)
 sausage = Food(100,15,10,12)
+fettuccine = Food(592,33.1,58.1,24.3)
+pasta_bake = Food(680,36,60,32)
+dirty_fries = Food(1106,36,86,66)
+banana = Food(110,1,28,0)
+toast = Food(134,4.9,18.2,4.1)
 
 food_choices = {"egg": egg,
-"sausage": sausage}
+"sausage": sausage,
+"fettuccine": fettuccine,
+"pasta bake": pasta_bake,
+"dirty fries": dirty_fries,
+"banana": banana,
+"toast": toast}
 
 def daily_stats():
     cals = 0
